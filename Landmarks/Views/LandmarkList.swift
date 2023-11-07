@@ -8,10 +8,10 @@ struct LandmarkList: View {
         NavigationSplitView(columnVisibility: $columnVisibility) {
             List(landmarks) { landmark in
                 LandmarkRow(landmark: landmark)
-                .onTapGesture {
-                    selectedLandmark = landmark
-                    columnVisibility = .detailOnly
-                }
+                    .onTapGesture {
+                        selectedLandmark = landmark
+                        columnVisibility = .detailOnly
+                    }
             }
             .navigationDestination(item: $selectedLandmark) { landmark in
                 LandmarkDetail(landmark: landmark)
