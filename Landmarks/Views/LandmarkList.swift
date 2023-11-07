@@ -1,16 +1,20 @@
 import SwiftUI
 
 struct LandmarkList: View {
-    @State private var columnVisibility = NavigationSplitViewVisibility.all
+    @State private var columnVisibility = NavigationSplitViewVisibility.detailOnly
+    @State private var selectedLandmark: Landmark?
     
     var body: some View {
-        NavigationSplitView {
+        NavigationSplitView(columnVisibility: $columnVisibility) {
             List(landmarks) { landmark in
-                NavigationLink {
-                    LandmarkDetail(landmark: landmark)
-                } label: {
-                    LandmarkRow(landmark: landmark)
+                LandmarkRow(landmark: landmark)
+                .onTapGesture {
+                    selectedLandmark = landmark
+                    columnVisibility = .detailOnly
                 }
+            }
+            .navigationDestination(item: $selectedLandmark) { landmark in
+                LandmarkDetail(landmark: landmark)
             }
             .navigationTitle("Landmarks")
         } detail: {
