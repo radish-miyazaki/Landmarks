@@ -1,0 +1,13 @@
+{
+    "aps": {
+        "alert": {
+            "body": "You are within 5 miles of Sliver Salmon Creek.",
+            "title": "Sliver Salmon Creek"
+        },
+        "category": "LandmarkNear",
+        "thread-id": "5280"
+    },
+    
+    "landmarkIndex": 1,
+    "Simulator Target Bundle": "com.radish-miyazaki.Landmarks.watchkitapp"
+}
