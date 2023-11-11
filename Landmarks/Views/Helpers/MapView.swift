@@ -4,6 +4,14 @@ import MapKit
 struct MapView: View {
     var coordinate: CLLocationCoordinate2D
     
+    enum Zoom: String, CaseIterable, Identifiable {
+        case near = "Near"
+        case medium = "Medium"
+        case far = "Far"
+        
+        var id: Zoom { self }
+    }
+    
     private var region: MKCoordinateRegion {
         MKCoordinateRegion(
             center: coordinate,
